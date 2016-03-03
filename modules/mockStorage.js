@@ -21,6 +21,11 @@ class MockStorage {
 			resolve(this.dataStore[entity]);
 		}.bind(this))
 	}
+	remove (entity, value) {
+		return new Promise(function(resolve, reject){
+			delete this.dataStore[entity];
+		});
+	}
 }
 
 module.exports = () => {

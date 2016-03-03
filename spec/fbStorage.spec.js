@@ -15,9 +15,21 @@ describe("Firebase Storage", function() {
   	done();
   });
 
-  it("should retrieve data", function(done){
+  it("should retrieve set data", function(done){
   	fbStorage.get('test').then(function(data){
   		expect(data).toEqual({testing : 'test'});
+  		done();
+  	});
+  });
+
+  it("should push data", function(done) {
+  	fbStorage.push('testArray', {testing : 'test'}).then((data) => {
+  		done();
+  	});
+  });
+
+  it("should remove data", function(done) {
+  	fbStorage.remove('testArray').then(() => {
   		done();
   	});
   });
